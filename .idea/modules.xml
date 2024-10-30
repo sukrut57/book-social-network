@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/book-social-network.iml" filepath="$PROJECT_DIR$/book-social-network.iml" />
+      <module fileurl="file://$PROJECT_DIR$/social-book-backend/social-book-backend.iml" filepath="$PROJECT_DIR$/social-book-backend/social-book-backend.iml" />
     </modules>
   </component>
 </project>
