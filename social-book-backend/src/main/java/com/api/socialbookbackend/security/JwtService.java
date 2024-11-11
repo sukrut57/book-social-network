@@ -2,6 +2,7 @@ package com.api.socialbookbackend.security;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Value;
@@ -20,8 +21,11 @@ public class JwtService {
     @Value("${application.security.jwt.expiration}")
     private long jwtExpiration;
 
-    @Value("${application.security.jwt.secret}")
-    private String secretKey;
+//    @Value("${application.security.jwt.secret}")
+//    private String secretKey;
+
+    private final Key secretKey = Keys.secretKeyFor(SignatureAlgorithm.HS256);
+
 
 
     public String generateToken(UserDetails userDetails) {
@@ -32,7 +36,7 @@ public class JwtService {
         return extractClaim(token, Claims::getSubject);
     }
 
-    private String generateToken(Map<String, Object> claims, UserDetails userDetails) {
+    public String generateToken(Map<String, Object> claims, UserDetails userDetails) {
         return buildToken(claims,userDetails,jwtExpiration);
     }
 
@@ -52,7 +56,7 @@ public class JwtService {
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + expiration))
                 .claim("authorities", authorities)
-                .signWith(getSignInKey())
+                .signWith(secretKey)
                 .compact();
     }
 
@@ -78,15 +82,15 @@ public class JwtService {
     private Claims extractAllClaims(String token) {
         return Jwts
                 .parserBuilder()
-                .setSigningKey(getSignInKey())
+                .setSigningKey(secretKey)
                 .build()
                 .parseClaimsJws(token)
                 .getBody();
     }
-
+/**
     private Key getSignInKey() {
         byte[] keyBytes = Decoders.BASE64.decode(secretKey);
         return Keys.hmacShaKeyFor(keyBytes);
-    }
+    }**/
 
 }

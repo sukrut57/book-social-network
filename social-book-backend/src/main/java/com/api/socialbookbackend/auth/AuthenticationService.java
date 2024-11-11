@@ -4,6 +4,7 @@ import com.api.socialbookbackend.email.EmailService;
 import com.api.socialbookbackend.email.EmailTemplateName;
 import com.api.socialbookbackend.role.Role;
 import com.api.socialbookbackend.role.RoleRepository;
+import com.api.socialbookbackend.security.JwtService;
 import com.api.socialbookbackend.user.Token;
 import com.api.socialbookbackend.user.TokenRepository;
 import com.api.socialbookbackend.user.User;
@@ -12,13 +13,19 @@ import jakarta.mail.MessagingException;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.security.Principal;
 import java.security.SecureRandom;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
@@ -29,6 +36,8 @@ public class AuthenticationService {
     private final TokenRepository tokenRepository;
     private final PasswordEncoder passwordEncoder;
     private final EmailService emailService;
+    private final AuthenticationManager authenticationManager;
+    private final JwtService jwtService;
 
     @Value("${application.security.jwt.token.length}")
     private int tokenLength;
@@ -68,6 +77,21 @@ public class AuthenticationService {
         }
 
 
+    }
+
+    public AuthenticationResponse authenticate(AuthenticationRequest authenticationRequest) {
+        //authenticate the user
+        Authentication authenticate = authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(
+                        authenticationRequest.email(),
+                        authenticationRequest.password()
+                ));
+        Map<String, Object> claims = new HashMap<>();
+        User user = ((User) authenticate.getPrincipal());
+        claims.put("fullName", user.getFullName());
+        String token = jwtService.generateToken(claims, (User) authenticate.getPrincipal());
+        //return the token
+        return new AuthenticationResponse(token);
     }
 
     private void sendEmailVerification(User user) throws RuntimeException, MessagingException {
@@ -111,5 +135,20 @@ public class AuthenticationService {
             tokenBuilder.append(characters.charAt(randomIndex));
         }
         return tokenBuilder.toString();
+    }
+
+    public void activateAccount(String token) throws MessagingException {
+        Token savedToken= tokenRepository.findByToken(token)
+                .orElseThrow(() -> new RuntimeException("Error: Token not found."));
+        if(LocalDateTime.now().isAfter(savedToken.getExpiresAt())){
+            sendEmailVerification(savedToken.getUser());
+            throw new RuntimeException("Error: Token has expired. A new token is sent to your email.");
+        }
+        User user = userRepository.findById(savedToken.getUser().getId())
+                .orElseThrow(() -> new RuntimeException("Error: User not found."));
+        user.setEnabled(true);
+        userRepository.save(user);
+        savedToken.setValidatedAt(LocalDateTime.now());
+        tokenRepository.save(savedToken);
     }
 }
