@@ -12,6 +12,7 @@ import com.api.socialbookbackend.user.UserRepository;
 import jakarta.mail.MessagingException;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -19,7 +20,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.security.Principal;
 import java.security.SecureRandom;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -27,6 +27,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class AuthenticationService {
@@ -45,6 +46,10 @@ public class AuthenticationService {
     @Value("${application.security.jwt.mailing.frontend.activation-url}")
     private String activationUrl;
 
+    /**
+     * Register a new user
+     * @param registrationRequest
+     */
     public void register(@Valid RegistrationRequest registrationRequest) {
         //assign a user role to the user
         Role userRole = roleRepository.findByName("USER")
@@ -79,8 +84,20 @@ public class AuthenticationService {
 
     }
 
+    /**
+     * Authenticate the user
+     * @param authenticationRequest
+     * @return
+     */
     public AuthenticationResponse authenticate(AuthenticationRequest authenticationRequest) {
-        //authenticate the user
+
+        //check if the user is enabled
+        User findUser = userRepository.findByEmail(authenticationRequest.email())
+                .orElseThrow(() -> new RuntimeException("Error: User not found."));
+
+        if(!findUser.isEnabled()){
+            throw new RuntimeException("Error: Account is not activated.");
+        }
         Authentication authenticate = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         authenticationRequest.email(),
@@ -94,6 +111,12 @@ public class AuthenticationService {
         return new AuthenticationResponse(token);
     }
 
+    /**
+     * Send an email verification to the user
+     * @param user
+     * @throws RuntimeException
+     * @throws MessagingException
+     */
     private void sendEmailVerification(User user) throws RuntimeException, MessagingException {
         String newToken = generateAndSaveActivationToken(user);
 
@@ -137,6 +160,11 @@ public class AuthenticationService {
         return tokenBuilder.toString();
     }
 
+    /**
+     * Activate the user account
+     * @param token
+     * @throws MessagingException
+     */
     public void activateAccount(String token) throws MessagingException {
         Token savedToken= tokenRepository.findByToken(token)
                 .orElseThrow(() -> new RuntimeException("Error: Token not found."));

@@ -3,7 +3,6 @@ package com.api.socialbookbackend.security;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.GrantedAuthority;
@@ -27,11 +26,15 @@ public class JwtService {
     private final Key secretKey = Keys.secretKeyFor(SignatureAlgorithm.HS256);
 
 
-
     public String generateToken(UserDetails userDetails) {
         return generateToken(new HashMap<>(),userDetails);
     }
 
+    /**
+     * Extracts the username from the JWT token.
+     * @param token the JWT token
+     * @return the username extracted from the token
+     */
     public String extractUsername(String token) {
         return extractClaim(token, Claims::getSubject);
     }
@@ -60,6 +63,12 @@ public class JwtService {
                 .compact();
     }
 
+    /**
+     * Validates the JWT token.
+     * @param token the JWT token
+     * @param userDetails the user details
+     * @return true if the token is valid, false otherwise
+     */
     public boolean isTokenValid(String token, UserDetails userDetails) {
         final String username = extractUsername(token);
         return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
@@ -74,11 +83,23 @@ public class JwtService {
     }
 
 
+    /**
+     * Extracts a claim from the JWT token.
+     * @param token the JWT token
+     * @param claimsResolver the function that extracts the claim
+     * @param <T> the type of the claim
+     * @return the claim extracted from the token
+     */
     public <T> T extractClaim(String token, Function<Claims, T> claimsResolver) {
         final Claims claims = extractAllClaims(token);
         return claimsResolver.apply(claims);
     }
 
+    /**
+     * Extracts all claims from the JWT token.
+     * @param token the JWT token
+     * @return all claims extracted from the token
+     */
     private Claims extractAllClaims(String token) {
         return Jwts
                 .parserBuilder()
@@ -87,10 +108,11 @@ public class JwtService {
                 .parseClaimsJws(token)
                 .getBody();
     }
-/**
+ /*
     private Key getSignInKey() {
         byte[] keyBytes = Decoders.BASE64.decode(secretKey);
         return Keys.hmacShaKeyFor(keyBytes);
-    }**/
+    }
+ */
 
 }

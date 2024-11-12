@@ -13,6 +13,12 @@ import org.springframework.stereotype.Service;
 public class UserDetailsServiceImpl implements UserDetailsService {
     private final UserRepository userRepository;
 
+    /**
+     * Loads a user by their username.
+     * @param username the username of the user to load
+     * @return the user with the specified username
+     * @throws UsernameNotFoundException if the user with the specified username is not found
+     */
     @Override
     @Transactional
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

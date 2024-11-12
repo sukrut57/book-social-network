@@ -99,9 +99,14 @@ public class User implements UserDetails, Principal {
         return true;
     }
 
+//    @Override
+//    public boolean isEnabled() {
+//        return UserDetails.super.isEnabled();
+//    }
+
     @Override
     public boolean isEnabled() {
-        return UserDetails.super.isEnabled();
+        return enabled;
     }
 
     public String getFullName(){

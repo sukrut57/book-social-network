@@ -18,6 +18,10 @@ public class BeansConfig {
 
     private final UserDetailsService userDetailsService;
 
+    /**
+     * This bean is required to be able to inject the AuthenticationProvider in the AuthenticationController
+     * @return
+     */
     @Bean
     public AuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
@@ -39,6 +43,10 @@ public class BeansConfig {
     }
 
 
+    /**
+     * This bean is required to be able to inject the PasswordEncoder in the AuthenticationController
+     * @return
+     */
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();

@@ -22,6 +22,12 @@ public class SecurityConfig{
     private final AuthenticationProvider authenticationProvider;
     private final JwtAuthFilter jwtAuthFilter;
 
+    /**
+     * Configures the security filter chain that carries out authentication and authorization.
+     * @param httpSecurity the HttpSecurity object to configure
+     * @return the SecurityFilterChain object that carries out authentication and authorization
+     * @throws Exception if an error occurs while configuring the security filter chain
+     */
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
        return httpSecurity.cors(Customizer.withDefaults())
