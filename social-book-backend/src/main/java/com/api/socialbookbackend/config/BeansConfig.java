@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springdoc.core.service.GenericParameterService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.domain.AuditorAware;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -40,6 +41,15 @@ public class BeansConfig {
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration configuration, GenericParameterService parameterBuilder) throws Exception {
         return configuration.getAuthenticationManager();
+    }
+
+    /**
+     * This bean is required to be able to inject the AuditorAware in the ApplicationAuditAware
+     * @return
+     */
+    @Bean
+    public AuditorAware<Long> auditorAware() {
+        return new ApplicationAuditAware();
     }
 
 

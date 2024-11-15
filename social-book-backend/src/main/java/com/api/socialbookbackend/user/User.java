@@ -1,5 +1,7 @@
 package com.api.socialbookbackend.user;
 
+import com.api.socialbookbackend.book.Book;
+import com.api.socialbookbackend.history.BookTransactionHistory;
 import com.api.socialbookbackend.role.Role;
 import jakarta.persistence.*;
 import lombok.*;
@@ -60,6 +62,12 @@ public class User implements UserDetails, Principal {
 
     @OneToMany(mappedBy = "user")
     private List<Token> tokens;
+
+    @OneToMany(mappedBy = "owner")
+    private List<Book> books;
+
+    @OneToMany(mappedBy = "user")
+    private List<BookTransactionHistory> bookTransactionHistories;
 
     @Override
     public String getName() {
