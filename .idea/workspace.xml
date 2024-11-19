@@ -5,21 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="353de691-7adc-4531-bbf9-21eb955abbc4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/social-book-backend/src/main/java/com/api/socialbookbackend/book/Book.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/social-book-backend/src/main/java/com/api/socialbookbackend/config/ApplicationAuditAware.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/social-book-backend/src/main/java/com/api/socialbookbackend/feedback/Feedback.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/social-book-backend/src/main/java/com/api/socialbookbackend/history/BookTransactionHistory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/social-book-backend/src/main/java/com/api/socialbookbackend/shared/BaseEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database_erd.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/database_erd.drawio" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/social-book-backend/src/main/java/com/api/socialbookbackend/config/BeansConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/social-book-backend/src/main/java/com/api/socialbookbackend/config/BeansConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/social-book-backend/src/main/java/com/api/socialbookbackend/config/DatabaseConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/social-book-backend/src/main/java/com/api/socialbookbackend/config/DatabaseConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/social-book-backend/src/main/java/com/api/socialbookbackend/user/Token.java" beforeDir="false" afterPath="$PROJECT_DIR$/social-book-backend/src/main/java/com/api/socialbookbackend/user/Token.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/social-book-backend/src/main/java/com/api/socialbookbackend/book/BookSpecification.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/social-book-backend/src/main/java/com/api/socialbookbackend/book/BorrowedBookResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/social-book-backend/src/main/java/com/api/socialbookbackend/handler/OperationNotPermittedException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/social-book-backend/src/main/java/com/api/socialbookbackend/history/BookTransactionHistoryRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/social-book-backend/src/main/java/com/api/socialbookbackend/book/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/social-book-backend/src/main/java/com/api/socialbookbackend/book/BookController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/social-book-backend/src/main/java/com/api/socialbookbackend/book/BookMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/social-book-backend/src/main/java/com/api/socialbookbackend/book/BookMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/social-book-backend/src/main/java/com/api/socialbookbackend/book/BookRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/social-book-backend/src/main/java/com/api/socialbookbackend/book/BookRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/social-book-backend/src/main/java/com/api/socialbookbackend/book/BookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/social-book-backend/src/main/java/com/api/socialbookbackend/book/BookService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/social-book-backend/src/main/java/com/api/socialbookbackend/handler/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/social-book-backend/src/main/java/com/api/socialbookbackend/handler/GlobalExceptionHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/social-book-backend/src/main/java/com/api/socialbookbackend/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/social-book-backend/src/main/java/com/api/socialbookbackend/user/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -30,8 +26,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Record" />
         <option value="Enum" />
+        <option value="Record" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -69,32 +66,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Spring Boot.SocialBookBackendApplication.executor&quot;: &quot;Debug&quot;,
-    &quot;com.codeium.enabled&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/sukru/OneDrive/Desktop/personal-projects/book-social-network&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.importing&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.SocialBookBackendApplication.executor": "Debug",
+    "com.codeium.enabled": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/sukru/OneDrive/Desktop/personal-projects/book-social-network",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.importing",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.api.socialbookbackend.book" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="SocialBookBackendApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
@@ -108,8 +111,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23726.103" />
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23726.103" />
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.21565.193" />
+        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-IU-243.21565.193" />
       </set>
     </attachedChunks>
   </component>
@@ -128,7 +131,9 @@
       <workItem from="1731509756651" duration="2630000" />
       <workItem from="1731512632069" duration="5000" />
       <workItem from="1731683198689" duration="1020000" />
-      <workItem from="1731684568639" duration="2561000" />
+      <workItem from="1731684568639" duration="7662000" />
+      <workItem from="1732039536686" duration="160000" />
+      <workItem from="1732039834169" duration="4530000" />
     </task>
     <servers />
   </component>

@@ -1,5 +1,6 @@
 package com.api.socialbookbackend.book;
 
+import com.api.socialbookbackend.history.BookTransactionHistory;
 import jakarta.validation.Valid;
 import org.hibernate.annotations.Comment;
 import org.springframework.stereotype.Component;
@@ -30,6 +31,18 @@ public class BookMapper {
                 //TODO implement later
                 //.cover(book.getBookCover())
                 .rate(book.getRate())
+                .build();
+    }
+
+    public static BorrowedBookResponse toBorrowedBookResponse(BookTransactionHistory bookTransactionHistory) {
+        return BorrowedBookResponse.builder()
+                .id(bookTransactionHistory.getId())
+                .returned(bookTransactionHistory.isReturned())
+                .returnedApproved(bookTransactionHistory.isReturnedApproved())
+                .title(bookTransactionHistory.getBook().getTitle())
+                .authorName(bookTransactionHistory.getBook().getAuthorName())
+                .rate(bookTransactionHistory.getBook().getRate())
+                .isbn(bookTransactionHistory.getBook().getIsbn())
                 .build();
     }
 }

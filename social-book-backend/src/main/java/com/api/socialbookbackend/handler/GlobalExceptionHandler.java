@@ -100,4 +100,15 @@ public class GlobalExceptionHandler {
                         .build());
     }
 
+    @ExceptionHandler(OperationNotPermittedException.class)
+    public ResponseEntity<ExceptionResponse> handleException(OperationNotPermittedException exception){
+        log.error("An unexpected error occurred", exception);
+        return ResponseEntity
+                .status(BAD_REQUEST)
+                .body(ExceptionResponse.builder()
+                        .businessErrorDescription("Bad Request")
+                        .error(exception.getMessage())
+                        .build());
+    }
+
 }
