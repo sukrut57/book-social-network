@@ -1,12 +1,14 @@
 package com.api.socialbookbackend.book;
 
 import com.api.socialbookbackend.common.PageResponse;
+import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 @RequestMapping("books")
@@ -78,7 +80,17 @@ public class BookController {
         return ResponseEntity.ok(bookService.returnBorrowedBook(bookId, connectedUser));
     }
 
-    //5:24:48
+    @PatchMapping("/borrow/return/approve/{book-id}")
+    public ResponseEntity<Long> approveReturnedBook(@PathVariable("book-id") Long bookId, Authentication connectedUser) {
+        return ResponseEntity.ok(bookService.approveReturnedBook(bookId, connectedUser));
+    }
+
+    @PostMapping(value = "/cover/{book-id}", consumes = "multipart/form-data")
+    public ResponseEntity<?> uploadBookCover(@PathVariable("book-id") Long bookId, @Parameter() @RequestPart("file") MultipartFile file, Authentication connectedUser) {
+        bookService.uploadBookCover(bookId, file, connectedUser);
+        return ResponseEntity.accepted().build();
+    }
+
 
 
 
