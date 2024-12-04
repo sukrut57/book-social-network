@@ -8,6 +8,12 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @EnableJpaAuditing(auditorAwareRef = "auditorAware")
 @EnableTransactionManagement
-@EnableJpaRepositories(basePackages = "com.api.socialbookbackend.*")
+@EnableJpaRepositories(basePackages = {
+          "com.api.socialbookbackend.book"
+        , "com.api.socialbookbackend.user"
+        , "com.api.socialbookbackend.role"
+        , "com.api.socialbookbackend.feedback",
+          "com.api.socialbookbackend.history",
+        })
 public class DatabaseConfig {
 }

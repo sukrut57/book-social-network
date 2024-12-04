@@ -7,7 +7,6 @@ import com.api.socialbookbackend.history.BookTransactionHistoryRepository;
 import com.api.socialbookbackend.user.User;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.Valid;
-import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -22,13 +21,17 @@ import static com.api.socialbookbackend.book.BookMapper.toBook;
 import static com.api.socialbookbackend.book.BookSpecification.withOwnerId;
 
 @Service
-@RequiredArgsConstructor
 public class BookService {
 
     private final BookRepository bookRepository;
     private final BookTransactionHistoryRepository bookTransactionHistoryRepository;
     private final FileStorageService fileStorageService;
 
+    public BookService(BookRepository bookRepository, BookTransactionHistoryRepository bookTransactionHistoryRepository, FileStorageService fileStorageService) {
+        this.bookRepository = bookRepository;
+        this.bookTransactionHistoryRepository = bookTransactionHistoryRepository;
+        this.fileStorageService = fileStorageService;
+    }
 
     public Long saveBook(@Valid BookRequest bookRequest, Authentication connectedUser) {
         User retrieveConnectedUser = (User) connectedUser.getPrincipal();
@@ -47,7 +50,7 @@ public class BookService {
         User retrieveConnectedUser = (User) connectedUser.getPrincipal();
         Pageable pageable = PageRequest.of(page, size, Sort.by("createdDate").descending());
 
-        Page<Book> books = bookRepository.findAllBooksNotOwnedByConnectedUser(retrieveConnectedUser.getId(), pageable);
+        Page<Book> books = bookRepository.findAllBooksNotOwnedByUser(retrieveConnectedUser.getId(), pageable);
         List<BookResponse> bookResponses = books.stream()
                 .map((BookMapper::toBookResponse))
                 .toList();
@@ -66,7 +69,8 @@ public class BookService {
         User retrieveConnectedUser = (User) connectedUser.getPrincipal();
         Pageable pageable = PageRequest.of(page,size, Sort.by("createdDate").descending());
 
-        Page<Book> books = bookRepository.findAllBooksOwnedByConnectedUser(withOwnerId(retrieveConnectedUser.getId()), pageable);
+//        Page<Book> books = bookRepository.findAllBooksOwnedByUser(withOwnerId(retrieveConnectedUser.getId()), pageable);
+        Page<Book> books = bookRepository.findAllBooksOwnedByUser(retrieveConnectedUser.getId(), pageable);
 
         List<BookResponse> bookResponses = books.stream()
                 .map(BookMapper::toBookResponse)

@@ -60,6 +60,7 @@ public class EmailService {
                 UTF_8.name());
         Map<String,Object> properties = new HashMap<>();
         properties.put("username",username);
+        properties.put("username",username);
         properties.put("confirmationUrl",conformationUrl);
         properties.put("activationCode",activationCode);
 

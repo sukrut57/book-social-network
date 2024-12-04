@@ -43,7 +43,7 @@ public class AuthenticationService {
     @Value("${application.security.jwt.token.length}")
     private int tokenLength;
 
-    @Value("${application.security.jwt.mailing.frontend.activation-url}")
+    @Value("${application.mailing.frontend.activation-url}")
     private String activationUrl;
 
     /**
