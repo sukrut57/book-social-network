@@ -4,7 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="353de691-7adc-4531-bbf9-21eb955abbc4" name="Changes" comment="" />
+    <list default="true" id="353de691-7adc-4531-bbf9-21eb955abbc4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/social-book-backend/src/main/java/com/api/socialbookbackend/book/FileUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/social-book-backend/src/main/java/com/api/socialbookbackend/feedback/FeedBackRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/social-book-backend/src/main/java/com/api/socialbookbackend/feedback/FeedbackController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/social-book-backend/src/main/java/com/api/socialbookbackend/feedback/FeedbackMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/social-book-backend/src/main/java/com/api/socialbookbackend/feedback/FeedbackRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/social-book-backend/src/main/java/com/api/socialbookbackend/feedback/FeedbackResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/social-book-backend/src/main/java/com/api/socialbookbackend/feedback/FeedbackService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/social-book-backend/src/main/java/com/api/socialbookbackend/book/BookMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/social-book-backend/src/main/java/com/api/socialbookbackend/book/BookMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/social-book-backend/src/main/java/com/api/socialbookbackend/book/BookResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/social-book-backend/src/main/java/com/api/socialbookbackend/book/BookResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/social-book-backend/src/main/java/com/api/socialbookbackend/book/BookSpecification.java" beforeDir="false" afterPath="$PROJECT_DIR$/social-book-backend/src/main/java/com/api/socialbookbackend/book/BookSpecification.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,9 +26,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Record" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="Record" />
       </list>
     </option>
   </component>
@@ -49,6 +61,9 @@
   &quot;associatedIndex&quot;: 8
 }</component>
   <component name="ProjectId" id="2oibUNSEQLVdCJ0L1n4uF5qyoOy" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -124,7 +139,7 @@
       <workItem from="1732047497652" duration="162000" />
       <workItem from="1732201681722" duration="3298000" />
       <workItem from="1732565022561" duration="404000" />
-      <workItem from="1733279326872" duration="301000" />
+      <workItem from="1733279326872" duration="2812000" />
     </task>
     <servers />
   </component>

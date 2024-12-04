@@ -17,8 +17,7 @@ public class BookResponse {
     private boolean archived;
     private String owner;
     private double rate;
-
-   // private byte[] bookCover;
+    private byte[] bookCover;
 
 
 }

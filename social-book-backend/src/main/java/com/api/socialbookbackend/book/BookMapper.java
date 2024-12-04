@@ -2,7 +2,6 @@ package com.api.socialbookbackend.book;
 
 import com.api.socialbookbackend.history.BookTransactionHistory;
 import jakarta.validation.Valid;
-import org.hibernate.annotations.Comment;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -28,8 +27,7 @@ public class BookMapper {
                 .shareable(book.isShareable())
                 .archived(book.isArchived())
                 .owner(book.getOwner().getFullName())
-                //TODO implement later
-                //.cover(book.getBookCover())
+                .bookCover(FileUtils.readFromFileLocation(book.getBookCover()))
                 .rate(book.getRate())
                 .build();
     }
