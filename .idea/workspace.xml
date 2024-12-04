@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="353de691-7adc-4531-bbf9-21eb955abbc4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/book-social-network.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4abfb122-42ae-43f1-85c3-61f748dbee61.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4abfb122-42ae-43f1-85c3-61f748dbee61/storage_v2/_src_/database/book-social_db.rNRcNw.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4abfb122-42ae-43f1-85c3-61f748dbee61/storage_v2/_src_/database/book-social_db.rNRcNw/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4abfb122-42ae-43f1-85c3-61f748dbee61/storage_v2/_src_/database/book-social_db.rNRcNw/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4abfb122-42ae-43f1-85c3-61f748dbee61/storage_v2/_src_/database/book-social_db.rNRcNw/schema/public.abK9xQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/social-book-backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/social-book-backend/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/social-book-backend/src/main/java/com/api/socialbookbackend/auth/AuthenticationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/social-book-backend/src/main/java/com/api/socialbookbackend/auth/AuthenticationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/social-book-backend/src/main/java/com/api/socialbookbackend/book/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/social-book-backend/src/main/java/com/api/socialbookbackend/book/BookController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/social-book-backend/src/main/java/com/api/socialbookbackend/book/BookRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/social-book-backend/src/main/java/com/api/socialbookbackend/book/BookRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/social-book-backend/src/main/java/com/api/socialbookbackend/book/BookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/social-book-backend/src/main/java/com/api/socialbookbackend/book/BookService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/social-book-backend/src/main/java/com/api/socialbookbackend/config/DatabaseConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/social-book-backend/src/main/java/com/api/socialbookbackend/config/DatabaseConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/social-book-backend/src/main/java/com/api/socialbookbackend/config/OpenApiConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/social-book-backend/src/main/java/com/api/socialbookbackend/config/OpenApiConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/social-book-backend/src/main/java/com/api/socialbookbackend/email/EmailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/social-book-backend/src/main/java/com/api/socialbookbackend/email/EmailService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/social-book-backend/src/main/java/com/api/socialbookbackend/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/social-book-backend/src/main/java/com/api/socialbookbackend/security/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/social-book-backend/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/social-book-backend/src/main/resources/application.yml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Interface" />
+        <option value="Record" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;sukrut57&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/sukrut57/book-social-network.git&quot;,
+    &quot;accountId&quot;: &quot;b101a69e-126a-4177-8ff1-4420e2df26cc&quot;
+  }
+}</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/social-book-backend/src/main/java/com/api/socialbookbackend/auth/AuthenticationController.java" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="jdkForImporter" value="#JAVA_HOME" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2oibUNSEQLVdCJ0L1n4uF5qyoOy" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.SocialBookBackendApplication.executor": "Run",
+    "com.codeium.enabled": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/sukru/OneDrive/Desktop/personal-projects/book-social-network",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "reference.projectsettings.compiler.annotationProcessors",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.api.socialbookbackend.book" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="SocialBookBackendApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="social-book-backend" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.api.socialbookbackend.SocialBookBackendApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.21565.193" />
+        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-IU-243.21565.193" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="353de691-7adc-4531-bbf9-21eb955abbc4" name="Changes" comment="" />
+      <created>1731355357319</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1731355357319</updated>
+      <workItem from="1731355358322" duration="2722000" />
+      <workItem from="1731379432665" duration="9000" />
+      <workItem from="1731419629593" duration="9389000" />
+      <workItem from="1731434996991" duration="5000" />
+      <workItem from="1731509756651" duration="2630000" />
+      <workItem from="1731512632069" duration="5000" />
+      <workItem from="1731683198689" duration="1020000" />
+      <workItem from="1731684568639" duration="7662000" />
+      <workItem from="1732039536686" duration="160000" />
+      <workItem from="1732039834169" duration="5606000" />
+      <workItem from="1732047497652" duration="162000" />
+      <workItem from="1732201681722" duration="3298000" />
+      <workItem from="1732565022561" duration="404000" />
+      <workItem from="1733279326872" duration="3084000" />
+      <workItem from="1733324695723" duration="1289000" />
+      <workItem from="1733326878677" duration="1626000" />
+      <workItem from="1733338535139" duration="16000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
