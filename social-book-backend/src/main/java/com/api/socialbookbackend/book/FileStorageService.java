@@ -69,6 +69,8 @@ public class FileStorageService {
         Path targetPath = Paths.get(targetFilePath);
         try{
             Files.write(targetPath, sourceFile.getBytes());
+            log.info("File saved to: {}", targetFilePath);
+            return targetFilePath;
         }
         catch (IOException exception){
             log.error("Failed to save file: {}", targetFilePath, exception);

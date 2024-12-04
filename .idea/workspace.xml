@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="353de691-7adc-4531-bbf9-21eb955abbc4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/social-book-backend/src/main/java/com/api/socialbookbackend/book/FileStorageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/social-book-backend/src/main/java/com/api/socialbookbackend/book/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/social-book-backend/src/main/java/com/api/socialbookbackend/book/BookController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/social-book-backend/src/main/java/com/api/socialbookbackend/book/BookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/social-book-backend/src/main/java/com/api/socialbookbackend/book/BookService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/social-book-backend/src/main/java/com/api/socialbookbackend/history/BookTransactionHistoryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/social-book-backend/src/main/java/com/api/socialbookbackend/history/BookTransactionHistoryRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/social-book-backend/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/social-book-backend/src/main/resources/application-dev.yml" afterDir="false" />
-    </list>
+    <list default="true" id="353de691-7adc-4531-bbf9-21eb955abbc4" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -131,6 +124,7 @@
       <workItem from="1732047497652" duration="162000" />
       <workItem from="1732201681722" duration="3298000" />
       <workItem from="1732565022561" duration="404000" />
+      <workItem from="1733279326872" duration="301000" />
     </task>
     <servers />
   </component>
