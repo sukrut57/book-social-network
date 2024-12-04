@@ -101,7 +101,6 @@ public class BookService {
                 .totalPages(AllBorrowedBooks.getTotalPages())
                 .content(bookResponses)
                 .build();
-
     }
 
     public PageResponse<BorrowedBookResponse> findAllReturnedBooks(int page, int size, Authentication connectedUser) {
