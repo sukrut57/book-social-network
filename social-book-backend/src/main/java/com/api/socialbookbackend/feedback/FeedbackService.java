@@ -2,7 +2,6 @@ package com.api.socialbookbackend.feedback;
 
 import com.api.socialbookbackend.book.Book;
 import com.api.socialbookbackend.book.BookRepository;
-import com.api.socialbookbackend.book.BorrowedBookResponse;
 import com.api.socialbookbackend.common.PageResponse;
 import com.api.socialbookbackend.handler.OperationNotPermittedException;
 import com.api.socialbookbackend.user.User;
