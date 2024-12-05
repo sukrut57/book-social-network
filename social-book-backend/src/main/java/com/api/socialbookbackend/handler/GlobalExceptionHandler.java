@@ -34,6 +34,7 @@ public class GlobalExceptionHandler {
                 .build());
     }
 
+
     /**
      * Handles the Disabled exception ; Spring security exception
      * @param disabledException the exception to handle

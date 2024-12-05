@@ -5,7 +5,8 @@ import jakarta.validation.constraints.*;
 public record FeedBackRequest(
 
         @Positive(message = "200")
-        @Size(min = 1, max = 5, message = "note must be between 1 and 5")
+        @Min(value = 1, message = "200")
+        @Max(value = 5, message = "200")
         Double note,
 
         @NotNull(message = "201")

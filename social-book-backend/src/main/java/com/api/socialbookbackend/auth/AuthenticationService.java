@@ -10,11 +10,14 @@ import com.api.socialbookbackend.user.TokenRepository;
 import com.api.socialbookbackend.user.User;
 import com.api.socialbookbackend.user.UserRepository;
 import jakarta.mail.MessagingException;
+import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.DisabledException;
+import org.springframework.security.authentication.LockedException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -93,10 +96,10 @@ public class AuthenticationService {
 
         //check if the user is enabled
         User findUser = userRepository.findByEmail(authenticationRequest.email())
-                .orElseThrow(() -> new RuntimeException("Error: User not found."));
+                .orElseThrow(() -> new EntityNotFoundException("Error: User not found."));
 
         if(!findUser.isEnabled()){
-            throw new RuntimeException("Error: Account is not activated.");
+            throw new DisabledException("Error: Account is not activated.");
         }
         Authentication authenticate = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(

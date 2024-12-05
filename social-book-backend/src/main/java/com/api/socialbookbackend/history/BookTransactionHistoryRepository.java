@@ -50,7 +50,7 @@ public interface BookTransactionHistoryRepository extends JpaRepository<BookTran
            SELECT bookTransactionHistory
            FROM BookTransactionHistory bookTransactionHistory
            WHERE bookTransactionHistory.book.id = :bookId
-           AND bookTransactionHistory.book.owner.id = :userId
+           AND bookTransactionHistory.book.createdBy = :userId
            AND bookTransactionHistory.returned = true
            AND bookTransactionHistory.returnedApproved = false
            """)

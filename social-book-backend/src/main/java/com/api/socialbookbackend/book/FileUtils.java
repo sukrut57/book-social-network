@@ -12,7 +12,7 @@ import java.nio.file.Path;
 public class FileUtils {
 
     public static byte[] readFromFileLocation(String fileUrl) {
-        if(StringUtils.isNotBlank(fileUrl)){
+        if(StringUtils.isBlank(fileUrl)){
             return null;
         }
         try{

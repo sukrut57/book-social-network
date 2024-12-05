@@ -69,8 +69,8 @@ public class BookService {
         User retrieveConnectedUser = (User) connectedUser.getPrincipal();
         Pageable pageable = PageRequest.of(page,size, Sort.by("createdDate").descending());
 
-//        Page<Book> books = bookRepository.findAllBooksOwnedByUser(withOwnerId(retrieveConnectedUser.getId()), pageable);
-        Page<Book> books = bookRepository.findAllBooksOwnedByUser(retrieveConnectedUser.getId(), pageable);
+        Page<Book> books = bookRepository.findAll(BookSpecification.withOwnerId(retrieveConnectedUser.getId()), pageable);
+        //Page<Book> books = bookRepository.findAllBooksOwnedByUser(retrieveConnectedUser.getId(), pageable);
 
         List<BookResponse> bookResponses = books.stream()
                 .map(BookMapper::toBookResponse)
@@ -112,6 +112,9 @@ public class BookService {
         Pageable pageable = PageRequest.of(page,size, Sort.by("createdDate").descending());
 
         Page<BookTransactionHistory> AllReturnedBooks = bookTransactionHistoryRepository.findAllReturnedBooks(retrieveConnectedUser.getId(), pageable);
+        if(AllReturnedBooks.isEmpty()){
+            throw new EntityNotFoundException("No returned books found");
+        }
         List<BorrowedBookResponse> bookResponses = AllReturnedBooks.stream()
                 .map(BookMapper::toBorrowedBookResponse)
                 .toList();
@@ -211,8 +214,8 @@ public class BookService {
             throw new OperationNotPermittedException("This book is not available for returning");
         }
 
-        if(book.getOwner().getId().equals(retrieveConnectedUser.getId())){
-            throw new OperationNotPermittedException("You cannot approve the return of your own book");
+        if(!book.getOwner().getId().equals(retrieveConnectedUser.getId())){
+            throw new OperationNotPermittedException("You cannot approve the return of book not owned by you");
         }
         BookTransactionHistory bookTransactionHistory = bookTransactionHistoryRepository.findByBookIdAndOwnerId(bookId, retrieveConnectedUser.getId())
                 .orElseThrow(() -> new OperationNotPermittedException("The book is not returned by the borrower so you cannot approve the return yet"));

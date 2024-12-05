@@ -22,16 +22,15 @@ public interface BookRepository extends JpaRepository<Book, Long>, JpaSpecificat
     Page<Book> findAllBooksNotOwnedByUser(Long id, Pageable pageable);
 
 
-   // Page<Book> findAllBooksOwnedByUser(Specification<Book> bookSpecification, Pageable pageable);
 
-    @Query("""
-            SELECT book
-            FROM Book book
-            WHERE book.owner.id = :id
-            AND book.archived = false
-            AND book.shareable = true
-
-        """)
-    Page<Book> findAllBooksOwnedByUser(Long id, Pageable pageable);
+//    @Query("""
+//            SELECT book
+//            FROM Book book
+//            WHERE book.owner.id = :id
+//            AND book.archived = false
+//            AND book.shareable = true
+//
+//        """)
+//    Page<Book> findAllBooksOwnedByUser(Long id, Pageable pageable);
 
 }
