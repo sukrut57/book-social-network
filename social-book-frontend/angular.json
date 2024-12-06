@@ -79,7 +79,8 @@
               "buildTarget": "social-book-frontend:build:production"
             },
             "development": {
-              "buildTarget": "social-book-frontend:build:development"
+              "buildTarget": "social-book-frontend:build:development",
+              "proxyConfig": "src/proxy-local.conf.json"
             }
           },
           "defaultConfiguration": "development"
