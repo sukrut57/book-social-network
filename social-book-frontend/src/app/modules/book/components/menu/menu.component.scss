@@ -1,0 +1,16 @@
+.active-link:hover{
+  background-color: rgb(216, 229, 239);
+  text-decoration: underline;
+}
+
+.active{
+  color:#24a7e9 !important;
+}
+
+.search-box{
+  width: 120px;
+}
+
+.search-box:focus{
+  width: 200px;
+}
