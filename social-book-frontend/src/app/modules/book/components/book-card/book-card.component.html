@@ -1,0 +1,28 @@
+
+<div class="card" style="width: 18rem;">
+
+  <img [src]="processBytesImage()" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title fs-6 fw-bold mb-1"><i class="fa-solid fa-book"></i> &nbsp;{{book.title}}</h5>
+    <h5 class="card-subtitle fs-6 text-secondary mb-1"><i class="fa-solid fa-user-check"></i> &nbsp;{{book.authorName}}</h5>
+    <h6 class="card-subtitle fs-6 text-secondary mb-1"><i class="fa-solid fa-code"></i> &nbsp;{{book.isbn}}</h6>
+    <h6 class="card-subtitle fs-6 text-secondary mb-1"><i class="fa-solid fa-user"></i> &nbsp;{{book.owner}}</h6>
+    <hr>
+    <p class="card-text">{{book.synopsis}}</p>
+  </div>
+  <div class="card-footer d-flex align-items-center justify-content-between">
+    <div class="gap-2 d-flex">
+      {{book.rate}}
+    </div>
+    <div class="d-flex gap-2">
+      <i class="fa-solid fa-circle-info text-primary"></i>
+      <i class="fa-solid fa-list-check text-primary"></i>
+      <i class="fa-solid fa-heart text-danger"></i>
+    </div>
+    <div class="d-flex gap-2">
+      <i class="fa-solid fa-edit text-success"></i>
+      <i class="fa-solid fa-share-nodes text-primary"></i>
+      <i class="fa-solid fa-trash-alt text-danger"></i>
+    </div>
+  </div>
+</div>

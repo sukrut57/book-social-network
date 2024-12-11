@@ -1,18 +1,10 @@
-import {
-  HttpEvent,
-  HttpHandler,
-  HttpHeaders,
-  HttpInterceptor,
-  HttpInterceptorFn,
-  HttpRequest
-} from '@angular/common/http';
-import {inject, Injectable} from '@angular/core';
+import {HttpHeaders, HttpInterceptorFn} from '@angular/common/http';
+import {inject} from '@angular/core';
 import {TokenService} from '../token/token.service';
-import {Observable} from 'rxjs';
 
 export const httpTokenInterceptor: HttpInterceptorFn = (request, next) => {
   const tokenService = inject(TokenService);
-  const getToken = localStorage.getItem('token');
+  const getToken = tokenService.token;
   if(getToken){
     const authRequest = request.clone({
       headers: new HttpHeaders({

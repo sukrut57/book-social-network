@@ -10,6 +10,9 @@ import { RegisterComponent } from './pages/register/register.component';
 import { ActivateAccountComponent } from './pages/activate-account/activate-account.component';
 import {CodeInputModule} from "angular-code-input";
 import {httpTokenInterceptor} from './services/interceptor/http-token.interceptor';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import {httpTokenInterceptor} from './services/interceptor/http-token.intercepto
         BrowserModule,
         AppRoutingModule,
         FormsModule,
-        CodeInputModule
+        CodeInputModule,
+        NgbModule,
+        BrowserAnimationsModule,
+        MatPaginatorModule
   ],
   providers: [
     provideHttpClient(withFetch(), withInterceptors([httpTokenInterceptor]))
