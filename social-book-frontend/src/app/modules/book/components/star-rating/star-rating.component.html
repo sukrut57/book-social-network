@@ -1,0 +1,20 @@
+
+@if(rating!==0){
+  <ng-container>
+    <div  class="star-rating">
+      <span class="text-info-emphasis pe-2 fs-6">{{rating | number:'1.1-1'}}</span>
+      <i class="fa fa-star" *ngFor="let star of stars"></i>
+      @if(rating !=undefined && rating % 1 !== 0){
+        <i class="fa fa-star-half"></i>
+      }
+    </div>
+  </ng-container>
+} @else {
+  <ng-container>
+    <div  class="star-rating-none">
+      <span class="text-info-emphasis pe-2 fs-6">0.0</span>
+      <i class="fa fa-star" *ngFor="let star of stars"></i>
+    </div>
+  </ng-container>
+}
+

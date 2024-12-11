@@ -11,18 +11,23 @@
     <p class="card-text">{{book.synopsis}}</p>
   </div>
   <div class="card-footer d-flex align-items-center justify-content-between">
-    <div class="gap-2 d-flex">
-      {{book.rate}}
+    <div>
+      <app-star-rating [rating]="book.rate"></app-star-rating>
     </div>
-    <div class="d-flex gap-2">
-      <i class="fa-solid fa-circle-info text-primary"></i>
-      <i class="fa-solid fa-list-check text-primary"></i>
-      <i class="fa-solid fa-heart text-danger"></i>
-    </div>
-    <div class="d-flex gap-2">
-      <i class="fa-solid fa-edit text-success"></i>
-      <i class="fa-solid fa-share-nodes text-primary"></i>
-      <i class="fa-solid fa-trash-alt text-danger"></i>
-    </div>
+    @if (!manage) {
+      <ng-container>
+        <div class="d-flex gap-2">
+          <i (click)="onShowDetails(book)" class="fa-solid fa-circle-info text-primary  icon"></i>
+          <i (click)="onBorrow()" class="fa-solid fa-list-check text-primary icon"></i>
+          <i (click)="onAddToWaitingList()" class="fa-solid fa-heart text-danger icon"></i>
+        </div>
+      </ng-container>
+    } @else {
+      <div class="d-flex gap-2">
+        <i (click)="onEdit()" class="fa-solid fa-edit text-success icon"></i>
+        <i (click)="onShare()" class="fa-solid fa-share-nodes text-primary icon"></i>
+        <i (click)="onDelete()" class="fa-solid fa-trash-alt text-danger icon"></i>
+      </div>
+    }
   </div>
 </div>

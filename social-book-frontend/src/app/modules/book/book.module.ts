@@ -7,6 +7,10 @@ import { MenuComponent } from './components/menu/menu.component';
 import { BookListComponent } from './pages/book-list/book-list.component';
 import { BookCardComponent } from './components/book-card/book-card.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { MyBooksComponent } from './pages/my-books/my-books.component';
+import { BookDetailsComponent } from './pages/book-details/book-details.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { StarRatingComponent } from './components/star-rating/star-rating.component';
 
 
 
@@ -15,7 +19,11 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MainComponent,
     MenuComponent,
     BookListComponent,
-    BookCardComponent
+    BookCardComponent,
+    MyBooksComponent,
+    BookDetailsComponent,
+    StarRatingComponent,
+
   ],
   imports: [
     CommonModule,

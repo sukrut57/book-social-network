@@ -1,9 +1,9 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 import {MainComponent} from './pages/main/main.component';
 import {BookListComponent} from './pages/book-list/book-list.component';
-import {MenuComponent} from './components/menu/menu.component';
-import {LoginComponent} from '../../pages/login/login.component';
+import {MyBooksComponent} from './pages/my-books/my-books.component';
+import {BookDetailsComponent} from './pages/book-details/book-details.component';
 
 const routes: Routes = [
   {
@@ -14,6 +14,15 @@ const routes: Routes = [
       {
         path: '',
         component:BookListComponent
+      },
+      {
+        path: 'my-books',
+        component:MyBooksComponent
+      },
+
+      {
+        path: ':id/details',
+        component:BookDetailsComponent
       }
     ]
   }

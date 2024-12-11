@@ -1,0 +1,15 @@
+<div class="container d-flex align-items-start justify-content-start gap-4 py-4">
+  <img [src]="processBytesImage()" alt="..." class="image-container">
+  <div class="w-50">
+    <h2>{{book?.title}}</h2>
+    <p class="fs-5">by <span class="fw-bold text-success text-decoration-underline">{{book?.authorName}}</span> (Author)</p>
+    <hr>
+    <div class="bg-body-tertiary p-2 border border-0 rounded-1" style="height: 150px">
+      <h3>Description</h3>
+      <p class="mt-2">{{book?.synopsis}}</p>
+    </div>
+    <div>
+      <app-star-rating [rating]="book?.rate"></app-star-rating>
+    </div>
+  </div>
+</div>

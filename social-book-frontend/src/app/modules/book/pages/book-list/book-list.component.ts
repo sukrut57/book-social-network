@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {PageResponseBookResponse} from '../../../../services/models/page-response-book-response';
 import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import {catchError, Observable, throwError} from 'rxjs';
+import {UriConstants} from '../../../../constants/uri-constants';
 
 @Component({
   selector: 'app-book-list',
@@ -22,17 +23,18 @@ export class BookListComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.findAllBooks();
+    this.findAllNotBooksOwnedByUser();
   }
 
   onPageChange(event: any){
     this.page = event.pageIndex;
     this.size = event.pageSize;
-    this.findAllBooks();
+    this.findAllNotBooksOwnedByUser();
   }
 
-  private findAllBooks() {
-    this.findAllBooksOwnedByConnectedUser().subscribe({
+
+  private findAllNotBooksOwnedByUser() {
+    this.findAllBooksNotOwnedByConnectedUser().subscribe({
       next: (response) => {
         this.bookResponse = response;
         console.log(JSON.stringify(response));
@@ -44,13 +46,20 @@ export class BookListComponent implements OnInit{
         this.errorMessage.push(err);
       }
     });
-
   }
 
+
   //service calls the authenticate the user
-  private findAllBooksOwnedByConnectedUser():Observable<PageResponseBookResponse>{
-    return this.httpClient.get("http://localhost:8080/api/v1/books/owned-by-connected-user", {params: {page: this.page, size: this.size}});
-    // return this.httpClient.post("http://localhost:8080/api/v1/auth/authenticate", this.authRequest);
+  private findAllBooksNotOwnedByConnectedUser(): Observable<PageResponseBookResponse> {
+    return this.httpClient.get<PageResponseBookResponse>(UriConstants.findAllBooksNotOwnedByConnectedUserUri(), {
+      params: { page: this.page, size: this.size }
+    }).pipe(
+      catchError((error: any) => {
+        this.errorMessage.push('Failed to fetch books not owned by the connected user.');
+        console.error('Error fetching books:', error);
+        return throwError(() => new Error('Error fetching books'));
+      })
+    );
   }
 
 }

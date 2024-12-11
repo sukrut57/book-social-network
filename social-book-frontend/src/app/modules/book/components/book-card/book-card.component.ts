@@ -1,5 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {BookResponse} from '../../../../services/models/book-response';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-book-card',
@@ -9,9 +10,22 @@ import {BookResponse} from '../../../../services/models/book-response';
 export class BookCardComponent {
 
   private _book:BookResponse = {};
+  private _manage:boolean=false;
+
+  constructor(private router: Router) {
+  }
 
   get book(): BookResponse{
     return this._book;
+  }
+
+  get manage(): boolean{
+    return this._manage;
+  }
+
+  @Input()
+  set manage(value: boolean){
+    this._manage = value;
   }
 
   @Input()
@@ -26,4 +40,38 @@ export class BookCardComponent {
     return 'no-book-cover.png';
   }
 
+
+  onShowDetails(book: BookResponse) {
+    console.log(book.synopsis);
+    this.router.navigate([`/books/${book.id}/details`]).then(
+      () => {
+        console.log('Navigation done');
+      }
+    ).catch(
+      (reason) => {
+        console.error('Navigation failed', reason);
+      }
+    );
+  }
+
+
+  onBorrow() {
+
+  }
+
+  onAddToWaitingList() {
+
+  }
+
+  onEdit() {
+
+  }
+
+  onShare() {
+
+  }
+
+  onDelete() {
+
+  }
 }
