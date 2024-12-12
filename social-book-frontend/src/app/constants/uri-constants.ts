@@ -5,6 +5,8 @@ export class UriConstants{
   private static readonly authenticate = '/auth/authenticate';
   private static readonly register = '/auth/register';
   private static readonly books = '/books';
+  private static readonly feedback = '/feedback';
+
 
   static authenticateUri(): string{
     return this.BASE_URL + this.API_VERSION + this.authenticate;
@@ -24,6 +26,14 @@ export class UriConstants{
 
   static findAllBooksUri(): string{
     return this.BASE_URL + this.API_VERSION + this.books;
+  }
+
+  static findAllFeedBacksByBookIdUri(): string{
+    return this.BASE_URL + this.API_VERSION + this.feedback + `/book`;
+  }
+
+  static createFeedback(): string{
+    return this.BASE_URL + this.API_VERSION + this.feedback;
   }
 
 }

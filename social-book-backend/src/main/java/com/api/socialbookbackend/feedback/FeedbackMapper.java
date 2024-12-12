@@ -20,7 +20,8 @@ public class FeedbackMapper {
         return new FeedbackResponse(
                 feedback.getNote(),
                 feedback.getComment(),
-                feedback.getBook().getOwner().getId().equals(user.getId())
+                feedback.getBook().getOwner().getId().equals(user.getId()),
+                feedback.getCreatedBy()
         );
     }
 }

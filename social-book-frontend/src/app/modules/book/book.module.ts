@@ -11,6 +11,8 @@ import { MyBooksComponent } from './pages/my-books/my-books.component';
 import { BookDetailsComponent } from './pages/book-details/book-details.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { StarRatingComponent } from './components/star-rating/star-rating.component';
+import {MatButton} from "@angular/material/button";
+import {MatLabel} from '@angular/material/form-field';
 
 
 
@@ -29,7 +31,10 @@ import { StarRatingComponent } from './components/star-rating/star-rating.compon
     CommonModule,
     BookRoutingModule,
     NgOptimizedImage,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatButton,
+    MatLabel,
+    FormsModule
   ]
 })
 export class BookModule { }
