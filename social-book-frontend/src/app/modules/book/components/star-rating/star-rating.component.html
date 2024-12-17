@@ -1,7 +1,7 @@
 
 @if(rating!==0){
   <ng-container>
-    <div  class="star-rating">
+    <div  class="star-rating" (mouseleave)="resetStars()">
       <span class="text-info-emphasis pe-2 fs-6">{{rating | number:'1.1-1'}}</span>
       <i class="fa fa-star" *ngFor="let star of stars"></i>
       @if(rating !=undefined && rating % 1 !== 0){

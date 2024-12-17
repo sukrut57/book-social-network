@@ -1,6 +1,7 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {BookResponse} from '../../../../services/models/book-response';
 import {Router} from '@angular/router';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-book-card',
@@ -11,8 +12,14 @@ export class BookCardComponent {
 
   private _book:BookResponse = {};
   private _manage:boolean=false;
+  private _errorMessage: Array<string> = [];
+  private _successMessage:string = '';
+  @Output() error: EventEmitter<Array<string>> = new EventEmitter<Array<string>>();
+  @Output() success: EventEmitter<string> = new EventEmitter<string>();
 
-  constructor(private router: Router) {
+
+  constructor(private router: Router,
+              private httpClient: HttpClient) {
   }
 
   get book(): BookResponse{
@@ -31,6 +38,19 @@ export class BookCardComponent {
   @Input()
   set book(value: BookResponse){
     this._book = value;
+  }
+
+
+   publishErrorMessage(){
+    if(this._errorMessage.length > 0){
+      this.error.emit(this._errorMessage);
+    }
+  }
+
+  publishSuccessMessage(){
+    if(this._successMessage){
+      this.success.emit(this._successMessage)
+    }
   }
 
   processBytesImage(): string {
@@ -56,6 +76,7 @@ export class BookCardComponent {
 
 
   onBorrow() {
+    if(this.book.id) this.borrowBook(this.book.id);
 
   }
 
@@ -74,4 +95,24 @@ export class BookCardComponent {
   onDelete() {
 
   }
+
+  //service call to borrow a book
+  private borrowBook(bookId: number) {
+    this.httpClient.post(`http://localhost:8080/api/v1/books/borrow/${bookId}`, {}).subscribe({
+      next: (response) => {
+        console.log(response);
+        this._successMessage = 'Book borrowed successfully';
+        this.publishSuccessMessage();
+      },
+      error: (err) => {
+        console.error(err);
+        if(err.error.businessErrorDescription){
+          this._errorMessage.push(err.error.error);
+        }
+        this.publishErrorMessage();
+      }
+    });
+  }
+
+
 }

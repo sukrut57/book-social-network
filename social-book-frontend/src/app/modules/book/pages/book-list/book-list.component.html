@@ -1,8 +1,14 @@
+@if(errorMessage.length>0){
+  <ngb-alert type="danger" (closed)="closeAlert()">{{ errorMessage }}</ngb-alert>
+}
+@if(successMessage.length>0){
+  <ngb-alert type="success" (closed)="closeAlert()">{{ successMessage }}</ngb-alert>
+}
 <h3>Books List</h3>
 <hr>
 <div class="d-flex justify-content-start flex-wrap gap-2">
   @for (book of bookResponse.content;track $index){
-    <app-book-card [book] = "book" [manage] = "false"></app-book-card>
+    <app-book-card [book] = "book" [manage] = "false" (error)="handleError($event)" (success)="handleSuccess($event)"></app-book-card>
   }
 </div>
 <br>

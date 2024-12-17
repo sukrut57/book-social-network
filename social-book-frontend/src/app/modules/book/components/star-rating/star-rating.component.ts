@@ -15,4 +15,8 @@ export class StarRatingComponent {
     }
     return Array(5).fill(0);
   }
+
+  resetStars() {
+
+  }
 }

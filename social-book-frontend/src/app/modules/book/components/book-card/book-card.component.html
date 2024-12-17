@@ -17,9 +17,9 @@
     @if (!manage) {
       <ng-container>
         <div class="d-flex gap-2">
-          <i (click)="onShowDetails(book)" class="fa-solid fa-circle-info text-primary  icon"></i>
-          <i (click)="onBorrow()" class="fa-solid fa-list-check text-primary icon"></i>
-          <i (click)="onAddToWaitingList()" class="fa-solid fa-heart text-danger icon"></i>
+          <i  matTooltip="Show book details" (click)="onShowDetails(book)" class="fa-solid fa-circle-info text-primary  icon"></i>
+          <i  matTooltip="click to borrow book" (click)="onBorrow()" class="fa-solid fa-list-check text-primary icon"></i>
+          <i matTooltip="add to waiting list" (click)="onAddToWaitingList()" class="fa-solid fa-heart text-danger icon"></i>
         </div>
       </ng-container>
     } @else {

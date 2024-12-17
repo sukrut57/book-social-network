@@ -1,5 +1,8 @@
 <div class="container d-flex align-items-start justify-content-start gap-4 py-4">
-  <img [src]="processBytesImage()" alt="..." class="image-container">
+  <div>
+    <img [src]="processBytesImage()" alt="..." class="image-container">
+
+  </div>
 
   <div class="w-50">
 
@@ -32,7 +35,21 @@
 
       <form class="d-flex flex-column align-items-center gap-2 p-3" role="search">
         <textarea [(ngModel)]="review" name="review"  class="form-control" type="text" placeholder="write your review here" aria-label="Search a book" style="min-height: 100px"></textarea>
-        <button mat-raised-button class="text-secondary fs-5 fw-medium" type="submit" (click)="SubmitReview()">
+
+        <div class="align-self-start mt-3">
+          <mat-form-field>
+            <mat-label>Rate the book</mat-label>
+            <mat-select [(ngModel)]="rateBook" name="food">
+                <mat-option [value]="1">1</mat-option>
+                <mat-option [value]="2">2</mat-option>
+                <mat-option [value]="3">3</mat-option>
+                <mat-option [value]="4">4</mat-option>
+                <mat-option [value]="5">5</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <button mat-raised-button class="text-secondary fs-5 fw-medium" type="submit" (click)="SubmitReview()" [disabled]="review.trim().length<10">
          Submit
         </button>
       </form>

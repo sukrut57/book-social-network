@@ -36,4 +36,8 @@ export class UriConstants{
     return this.BASE_URL + this.API_VERSION + this.feedback;
   }
 
+  static borrowBookUri(): string{
+    return this.BASE_URL + this.API_VERSION + this.books + '/borrow';
+  }
+
 }

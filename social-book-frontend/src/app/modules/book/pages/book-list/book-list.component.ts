@@ -15,6 +15,7 @@ export class BookListComponent implements OnInit{
   page: number = 0;
   size: number = 10;
   errorMessage:Array<string> =[];
+  successMessage:string = '';
 
   totalPages: number = 1;
 
@@ -43,7 +44,7 @@ export class BookListComponent implements OnInit{
         }
       },
       error: (err) => {
-        this.errorMessage.push(err);
+        console.error('Error fetching books:', err);
       }
     });
   }
@@ -56,10 +57,23 @@ export class BookListComponent implements OnInit{
     }).pipe(
       catchError((error: any) => {
         this.errorMessage.push('Failed to fetch books not owned by the connected user.');
-        console.error('Error fetching books:', error);
         return throwError(() => new Error('Error fetching books'));
       })
     );
   }
 
+  handleError($event: Array<string>) {
+    this.errorMessage = [];
+    this.errorMessage.push(...$event);
+
+  }
+
+  closeAlert() {
+    this.errorMessage = [];
+    this.successMessage='';
+  }
+
+  handleSuccess($event: string) {
+    this.successMessage = $event;
+  }
 }

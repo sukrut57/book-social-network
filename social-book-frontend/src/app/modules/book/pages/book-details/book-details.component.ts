@@ -20,6 +20,7 @@ export class BookDetailsComponent implements OnInit{
   errorMessage:Array<string> =[];
 
   review: string ='';
+  rateBook: number = 1;
 
   get book(){
     return this.bookResponse;
@@ -89,7 +90,7 @@ export class BookDetailsComponent implements OnInit{
     return this.httpClient.post<number>(UriConstants.createFeedback(),{
       comment: this.review,
       bookId: this.bookResponse?.id,
-      note: 4
+      note: this.rateBook
     });
   }
 
@@ -101,6 +102,8 @@ export class BookDetailsComponent implements OnInit{
       error: (err) => {
         this.errorMessage.push(err);
       }
-    })
+    });
+    window.location.reload();
   }
+
 }
