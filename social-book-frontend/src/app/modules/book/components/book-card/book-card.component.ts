@@ -2,6 +2,8 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {BookResponse} from '../../../../services/models/book-response';
 import {Router} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
+import {UriConstants} from '../../../../constants/uri-constants';
+import {BookWaitingListService} from '../../../../services/book-waiting-list.service';
 
 @Component({
   selector: 'app-book-card',
@@ -19,7 +21,8 @@ export class BookCardComponent {
 
 
   constructor(private router: Router,
-              private httpClient: HttpClient) {
+              private httpClient: HttpClient,
+              private bookWaitingListService: BookWaitingListService) {
   }
 
   get book(): BookResponse{
@@ -81,7 +84,8 @@ export class BookCardComponent {
   }
 
   onAddToWaitingList() {
-
+    console.log('Adding to waiting list');
+    this.bookWaitingListService.addToList(this.book);
   }
 
   onEdit() {
@@ -98,7 +102,7 @@ export class BookCardComponent {
 
   //service call to borrow a book
   private borrowBook(bookId: number) {
-    this.httpClient.post(`http://localhost:8080/api/v1/books/borrow/${bookId}`, {}).subscribe({
+    this.httpClient.post(UriConstants.borrowBookUri()+`/${bookId}`, {}).subscribe({
       next: (response) => {
         console.log(response);
         this._successMessage = 'Book borrowed successfully';

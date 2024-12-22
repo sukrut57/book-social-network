@@ -4,6 +4,8 @@ import {MainComponent} from './pages/main/main.component';
 import {BookListComponent} from './pages/book-list/book-list.component';
 import {MyBooksComponent} from './pages/my-books/my-books.component';
 import {BookDetailsComponent} from './pages/book-details/book-details.component';
+import {MyBorrowedBooksComponent} from './pages/my-borrowed-books/my-borrowed-books.component';
+import {MyWaitingListComponent} from './pages/my-waiting-list/my-waiting-list.component';
 
 const routes: Routes = [
   {
@@ -23,6 +25,14 @@ const routes: Routes = [
       {
         path: ':id/details',
         component:BookDetailsComponent
+      },
+      {
+        path:'my-borrowed-books',
+        component:MyBorrowedBooksComponent
+      },
+      {
+        path:'my-waiting-list',
+        component:MyWaitingListComponent
       }
     ]
   }

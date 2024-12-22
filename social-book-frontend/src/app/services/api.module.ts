@@ -9,6 +9,7 @@ import { ApiConfiguration, ApiConfigurationParams } from './api-configuration';
 import { FeedbackService } from './services/feedback.service';
 import { BookService } from './services/book.service';
 import { AuthenticationService } from './services/authentication.service';
+import { BookWaitingListComponent } from './book-waiting-list/book-waiting-list.component';
 
 /**
  * Module that provides all services and configuration.
@@ -16,7 +17,9 @@ import { AuthenticationService } from './services/authentication.service';
 @NgModule({
   imports: [],
   exports: [],
-  declarations: [],
+  declarations: [
+    BookWaitingListComponent
+  ],
   providers: [
     FeedbackService,
     BookService,

@@ -40,4 +40,8 @@ export class UriConstants{
     return this.BASE_URL + this.API_VERSION + this.books + '/borrow';
   }
 
+  static findAllBorrowedBooksByConnectedUserUri(): string{
+    return this.BASE_URL + this.API_VERSION + this.books + '/borrowed-by-connected-user';
+  }
+
 }

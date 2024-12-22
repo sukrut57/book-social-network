@@ -47,9 +47,12 @@ export class LoginComponent {
      },
      error: (err) => {
        console.log(err)
-       if(err.error.businessErrorDescription || err.error.businessErrorCode){
-         this.errorMessage.push(err.error.businessErrorDescription);
-         this.errorMessage.push(err.error.error);
+       if(err.error.validationErrors){
+         for (let i of err.error.validationErrors){
+           this.errorMessage.push(i);
+
+         }
+
        }
         else{
          this.errorMessage.push("An error occurred while trying to login, please try again later");

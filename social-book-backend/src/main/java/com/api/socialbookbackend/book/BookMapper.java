@@ -41,6 +41,7 @@ public class BookMapper {
                 .authorName(bookTransactionHistory.getBook().getAuthorName())
                 .rate(bookTransactionHistory.getBook().getRate())
                 .isbn(bookTransactionHistory.getBook().getIsbn())
+                .bookId(bookTransactionHistory.getBook().getId())
                 .build();
     }
 }

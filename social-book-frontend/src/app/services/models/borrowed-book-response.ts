@@ -10,4 +10,5 @@ export interface BorrowedBookResponse {
   returned?: boolean;
   returnedApproved?: boolean;
   title?: string;
+  bookId?: number;
 }

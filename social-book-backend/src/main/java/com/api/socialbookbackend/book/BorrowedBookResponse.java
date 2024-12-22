@@ -15,4 +15,5 @@ public class BorrowedBookResponse {
     private boolean returned;
     private boolean returnedApproved;
     private double rate;
+    private Long bookId;
 }

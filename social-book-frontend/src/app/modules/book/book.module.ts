@@ -18,6 +18,7 @@ import {MatOptionModule} from '@angular/material/core';
 import {MatTooltipModule} from "@angular/material/tooltip";
 import {NgbAlert} from '@ng-bootstrap/ng-bootstrap';
 import { MyBorrowedBooksComponent } from './pages/my-borrowed-books/my-borrowed-books.component';
+import { MyWaitingListComponent } from './pages/my-waiting-list/my-waiting-list.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { MyBorrowedBooksComponent } from './pages/my-borrowed-books/my-borrowed-
     BookDetailsComponent,
     StarRatingComponent,
     MyBorrowedBooksComponent,
+    MyWaitingListComponent,
 
   ],
   imports: [

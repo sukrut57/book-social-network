@@ -1,1 +1,39 @@
-<p>my-borrowed-books works!</p>
+@if(errorMessage.length>0){
+  <ngb-alert type="danger" (closed)="closeAlert()">{{ errorMessage }}</ngb-alert>
+}
+<h3>My Current Borrowed Books</h3>
+<div class="container">
+  <div class="d-flex justify-content-start flex-wrap gap-2">
+    @for (book of currentBooksInfo;track $index){
+      <!--TODO: create a new component borrow-book-card and replace it ith app-book-card -->
+      <app-book-card [book] = "book" [manage] = "false" (error)="handleError($event)" ></app-book-card>
+    }
+  </div>
+</div>
+<!--<mat-paginator [length]="totalPages"-->
+<!--               [pageSize]="10"-->
+<!--               [pageSizeOptions]="[1, 10, 25, 100]"-->
+<!--               (page)="onPageChange($event)"-->
+<!--               [pageIndex]="page"-->
+<!--               aria-label="Select page">-->
+<!--</mat-paginator>-->
+<hr>
+
+<h3>My Past Borrowed Books</h3>
+<div class="container">
+  <div class="d-flex justify-content-start flex-wrap gap-2">
+    @for (book of pastBooksInfo;track $index){
+      <!--TODO: create a new component borrow-book-card and replace it ith app-book-card -->
+
+      <app-book-card [book] = "book" [manage] = "false" (error)="handleError($event)" ></app-book-card>
+
+    }
+  </div>
+</div>
+<!--<mat-paginator [length]="totalPages"-->
+<!--               [pageSize]="10"-->
+<!--               [pageSizeOptions]="[1, 10, 25, 100]"-->
+<!--               (page)="onPageChange($event)"-->
+<!--               [pageIndex]="page"-->
+<!--               aria-label="Select page">-->
+<!--</mat-paginator>-->
