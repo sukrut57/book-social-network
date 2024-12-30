@@ -1,0 +1,33 @@
+<div class="container">
+  <form [formGroup]="createBookForm" (ngSubmit)="onSubmit()">
+    <div class="d-flex gap-4 align-items-start p-4">
+
+      <div class="img-container">
+          <img src="no-book-cover.png" alt="coverImage" width="100%" class="pb-3">
+          <input  type="file" id="file" class="d-block" accept="image/*" formControlName="bookCover">
+          <mat-label>Upload cover image</mat-label>
+      </div>
+      <div class="right-container">
+        <mat-form-field class="mb-2">
+          <mat-label>Enter your book title here</mat-label>
+          <input matInput type="text" formControlName="title">
+        </mat-form-field>
+        <mat-form-field class="mb-2">
+          <mat-label>Enter the synopsis here</mat-label>
+          <textarea matInput type="text" formControlName="synopsis"></textarea>
+        </mat-form-field>
+        <mat-form-field class="mb-2">
+          <mat-label>Enter the Isbn code here</mat-label>
+          <input matInput type="text" formControlName="isbn">
+        </mat-form-field>
+        <mat-radio-group aria-label="Select an option" formControlName="sharable">
+          <mat-radio-button value="true" >True</mat-radio-button>
+          <mat-radio-button value="false">False</mat-radio-button>
+        </mat-radio-group>
+      </div>
+    </div>
+    <div class="d-flex align-items-center justify-content-center">
+      <button mat-raised-button type="submit" class="bg-info w-25 text-light">SUBMIT</button>
+    </div>
+  </form>
+</div>

@@ -6,6 +6,16 @@
   }
 </div>
 <br>
+<div class="container d-flex justify-content-end align-items-center mb-1">
+
+  <button mat-button (click)="openDialog()">
+    <i matTooltip="click to create a book"
+       class="fas fa-plus-circle fs-3 text-info add-icon"
+       aria-label="icon to add a new book">
+    </i>
+  </button>
+
+</div>
 <mat-paginator [length]="totalPages"
                [pageSize]="10"
                [pageSizeOptions]="[1, 10, 25, 100]"

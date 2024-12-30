@@ -9,7 +9,7 @@ import {BookCardComponent} from './components/book-card/book-card.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MyBooksComponent} from './pages/my-books/my-books.component';
 import {BookDetailsComponent} from './pages/book-details/book-details.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {StarRatingComponent} from './components/star-rating/star-rating.component';
 import {MatButton} from "@angular/material/button";
 import {MatFormFieldModule, MatLabel} from '@angular/material/form-field';
@@ -19,6 +19,10 @@ import {MatTooltipModule} from "@angular/material/tooltip";
 import {NgbAlert} from '@ng-bootstrap/ng-bootstrap';
 import { MyBorrowedBooksComponent } from './pages/my-borrowed-books/my-borrowed-books.component';
 import { MyWaitingListComponent } from './pages/my-waiting-list/my-waiting-list.component';
+import { CreateBookComponent } from './components/create-book/create-book.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatInput} from '@angular/material/input';
+import {MatRadioButton, MatRadioGroup} from '@angular/material/radio';
 
 
 @NgModule({
@@ -32,6 +36,7 @@ import { MyWaitingListComponent } from './pages/my-waiting-list/my-waiting-list.
     StarRatingComponent,
     MyBorrowedBooksComponent,
     MyWaitingListComponent,
+    CreateBookComponent,
 
   ],
   imports: [
@@ -46,7 +51,12 @@ import { MyWaitingListComponent } from './pages/my-waiting-list/my-waiting-list.
     MatSelectModule,
     MatOptionModule,
     MatTooltipModule,
-    NgbAlert
+    NgbAlert,
+    MatDialogModule,
+    ReactiveFormsModule,
+    MatInput,
+    MatRadioButton,
+    MatRadioGroup
   ]
 })
 export class BookModule { }

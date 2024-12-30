@@ -1,8 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import {PageResponseBookResponse} from '../../../../services/models/page-response-book-response';
 import {catchError, Observable, throwError} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {UriConstants} from '../../../../constants/uri-constants';
+import {CreateBookComponent} from '../../components/create-book/create-book.component';
+import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-my-books',
@@ -21,6 +23,8 @@ export class MyBooksComponent implements OnInit{
   constructor(private httpClient:HttpClient) {
 
   }
+  readonly dialog = inject(MatDialog);
+
 
   ngOnInit() {
     this.findAllBooksOwnedByUser();
@@ -59,6 +63,18 @@ export class MyBooksComponent implements OnInit{
         return throwError(() => new Error("failed to fetch books owned by user"));
       })
     )
+  }
+
+  openDialog() {
+    const dialogRef =
+      this.dialog.open(CreateBookComponent, {
+      width: '50rem',
+        height:'40rem'
+      });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 
 }
